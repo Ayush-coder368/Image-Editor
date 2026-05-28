@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    width: 100%;
+    min-height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html{
+    background-color: var(--bg-primary-color);
+    color: var(--text-primary-color);
+}
+
+body{
+    overflow-x: hidden;
+}
+
+/* =========================
+   MOBILE FIRST LAYOUT
+========================= */
+
+main{
+    width: 100%;
+    padding: var(--padding-md);
+}
+
+main section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn{
+    padding: 0.9rem 1.2rem;
+    background-color: var(--bg-active-color);
+    border: none;
+    outline: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    color: var(--text-active-color);
+    font-size: 0.95rem;
+    min-height: 45px;
+}
+
+#reset-btn{
+    background-color: var(--bg-danger-color);
+    color: var(--text-primary-color);
+}
+
+#download-btn{
+    background-color: var(--bg-success-color);
+    color: var(--text-primary-color);
+}
+
+/* =========================
+   TOP CONTROLS
+========================= */
+
+main section .top{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter-sm);
+    width: 100%;
+}
+
+main section .top .btn{
+    flex: 1;
+}
+
+/* =========================
+   LEFT PANEL
+========================= */
+
+main section .left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+}
+
+/* =========================
+   IMAGE AREA
+========================= */
+
+main section .bottom{
+    background-color: var(--bg-secondary-color);
+    width: 100%;
+    min-height: 300px;
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius-xl);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    position: relative;
+}
+
+main section .bottom .placeholder{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.6;
+    gap: var(--gutter-sm);
+    text-align: center;
+}
+
+main section .bottom .placeholder i{
+    font-size: clamp(4rem, 10vw, 8rem);
+}
+
+main section .bottom .placeholder p{
+    font-size: var(--font-size-lg);
+}
+
+/* =========================
+   RIGHT PANEL
+========================= */
+
+main section .right{
+    width: 100%;
+    background-color: var(--bg-secondary-color);
+    padding: var(--padding-lg);
+    border-radius: var(--border-radius-lg);
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-lg);
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+main section .right .filters{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter-md);
+}
+
+main section .right .filter{
+    width: 100%;
+}
+
+main section .right .filter p{
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+main section .right .filter input{
+    width: 100%;
+    outline: none;
+    appearance: none;
+    background: transparent;
+}
+
+/* Slider Thumb */
+
+main section .right .filter input::-webkit-slider-thumb{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    appearance: none;
+    background-color: var(--bg-active-color);
+    margin-top: -7px;
+    border: none;
+}
+
+/* Slider Track */
+
+main section .right .filter input::-webkit-slider-runnable-track{
+    background-color: var(--bg-active-color);
+    height: 6px;
+    border-radius: 999px;
+}
+
+/* =========================
+   CANVAS
+========================= */
+
+canvas{
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    display: none;
+    border-radius: var(--border-radius-md);
+}
+
+/* =========================
+   PRESETS
+========================= */
+
+.presets{
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gutter-sm);
+}
+
+.presets button{
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    background-color: var(--bg-active-color);
+    color: var(--text-active-color);
+    flex-grow: 1;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (min-width: 768px){
+
+    main{
+        padding: var(--padding-xl);
+    }
+
+    main section{
+        gap: var(--gutter-xl);
+    }
+
+    main section .bottom{
+        min-height: 500px;
+    }
+
+    .presets button{
+        flex-grow: 0;
+    }
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 1024px){
+
+    main section{
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    main section .left{
+        width: 70%;
+    }
+
+    main section .right{
+        width: 30%;
+        position: sticky;
+        top: 20px;
+    }
+
+    main section .bottom{
+        aspect-ratio: 5.5 / 3;
+    }
+
+    canvas{
+        max-width: 90%;
+    }
+}
