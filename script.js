@@ -135,6 +135,10 @@ function applyFilters() {
     CanvasCtx.drawImage(image, 0, 0);
 }
 downloadBtn.addEventListener("click", () => {
+     if (!image) {
+        alert("Please upload an image first!");
+        return;
+    }
     const link = document.createElement("a");
     link.download = "edited-image.png";
     link.href = imageCanvas.toDataURL();
